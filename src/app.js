@@ -4,6 +4,8 @@ const cookieParser = require("cookie-parser");
 const session = require("express-session");
 const path = require("path");
 const { CORS_ORIGIN } = require("./config/config");
+const globalErrorHandler = require("./middlewares/globalErrorHandler");
+const ApiError = require("./utils/ApiError");
 
 const app = express();
 
@@ -26,5 +28,9 @@ app.use(
         saveUninitialized: true,
     })
 );
+
+// routes
+
+app.use(globalErrorHandler);
 
 module.exports = app;
