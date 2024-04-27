@@ -1,0 +1,20 @@
+{
+    "name": "bus-yatri",
+    "version": "1.0.0",
+    "description": "This project contains backend of \"bus yatri\" project",
+    "main": "index.js",
+    "scripts": {
+        "start": "node src/index.js",
+        "dev": "nodemon src/index.js"
+    },
+    "author": "Kushagra Agrawal <kushagrawal202@gmail.com>",
+    "license": "ISC",
+    "devDependencies": {
+        "nodemon": "^3.1.0",
+        "prettier": "^3.2.5"
+    },
+    "dependencies": {
+        "dotenv": "^16.4.5",
+        "express": "^4.19.2"
+    }
+}
