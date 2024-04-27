@@ -1,4 +1,4 @@
-require("dotenv").config({ path: "../../.env" });
+require("dotenv").config({ path: ".env" });
 
 const _CONFIG = {
     PORT: process.env.PORT,
