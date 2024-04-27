@@ -1,0 +1,30 @@
+const express = require("express");
+const cors = require("cors");
+const cookieParser = require("cookie-parser");
+const session = require("express-session");
+const path = require("path");
+const { CORS_ORIGIN } = require("./config/config");
+
+const app = express();
+
+app.use(
+    cors({
+        origin: CORS_ORIGIN,
+        credentials: true,
+    })
+);
+
+app.use(express.static(path.join(__dirname, "../public")));
+
+app.use(express.json({ limit: "16kb" }));
+app.use(express.urlencoded({ extended: true, limit: "16kb" }));
+app.use(cookieParser());
+app.use(
+    session({
+        secret: "dsnosndi3309u9sdudv45909", // Set a secret key for session encryption
+        resave: false,
+        saveUninitialized: true,
+    })
+);
+
+module.exports = app;
