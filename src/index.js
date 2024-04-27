@@ -1,7 +1,6 @@
 const { PORT } = require("./config/config");
 const connectDB = require("./db/connection");
 const app = require("./app");
-const ApiError = require("./utils/ApiError");
 
 const port = PORT || 3000;
 
