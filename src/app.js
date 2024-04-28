@@ -3,7 +3,7 @@ const cors = require("cors");
 const cookieParser = require("cookie-parser");
 const session = require("express-session");
 const path = require("path");
-const { CORS_ORIGIN } = require("./config/config");
+const { CORS_ORIGIN, SESSION_SECRET_KEY } = require("./config/config");
 const globalErrorHandler = require("./middlewares/globalErrorHandler");
 const ApiError = require("./utils/ApiError");
 
@@ -23,7 +23,7 @@ app.use(express.urlencoded({ extended: true, limit: "16kb" }));
 app.use(cookieParser());
 app.use(
     session({
-        secret: "dsnosndi3309u9sdudv45909", // Set a secret key for session encryption
+        secret: SESSION_SECRET_KEY,
         resave: false,
         saveUninitialized: true,
     })
