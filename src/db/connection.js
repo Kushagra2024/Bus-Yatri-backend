@@ -2,8 +2,9 @@ const mongoose = require("mongoose");
 const { MONGODB_URI } = require("../config/config");
 const { DB_NAME } = require("../constant");
 
-const db_Connection_String =
-    `${MONGODB_URI}/${DB_NAME}` || `mongodb://127.0.0.1:27017/${DB_NAME}`;
+const db_Connection_String = MONGODB_URI
+    ? `${MONGODB_URI}/${DB_NAME}`
+    : `mongodb://127.0.0.1:27017/${DB_NAME}`;
 
 const connectDB = async () => {
     try {
