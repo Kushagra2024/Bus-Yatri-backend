@@ -1,4 +1,4 @@
-const { Schema, model, Types } = require("mongoose");
+const { Schema, model } = require("mongoose");
 const { isEmail } = require("validator");
 const bcrypt = require("bcrypt");
 const { ROLES } = require("../constant");
@@ -44,12 +44,12 @@ adminSchema.pre("save", async function (next) {
             return next();
         }
 
-        const salt = bcrypt.genSalt(10);
+        const salt = await bcrypt.genSalt(10);
         this.password = await bcrypt.hash(this.password, salt);
 
         return next();
     } catch (error) {
-        console.error(error);
+        console.error("Error while hashing password", error);
     }
 });
 
